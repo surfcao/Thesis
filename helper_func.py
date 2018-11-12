@@ -27,8 +27,8 @@ def load_batch(path,end=25000,init_shape=64,scale=2):
 
 	
 
-def test_network(prediction,x,y,train,init_shape=128,scale=2):
-	img = cv2.imread('/home/sidhanth/project_workspace/init_dataset/aye/27.png',1)	
+def test_network(img_path,prediction,x,y,train,init_shape=128,scale=2):
+	img = cv2.imread(img_path,1)	
 	img_x,img_y = cv2.resize(img,(init_shape,init_shape),interpolation=cv2.INTER_CUBIC),cv2.resize(img,(init_shape*scale,init_shape*scale),interpolation=cv2.INTER_CUBIC)
 	img_x,img_y = np.expand_dims(img_x,axis=0),np.expand_dims(img_y,axis=0)
 	feed = {train:False,x:img_x,y:img_y}	
