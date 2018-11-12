@@ -2,7 +2,7 @@ import tensorflow as tf
 from utils import conv2d,prelu,lrelu,batch_norm,tanh,subpixel2d
 
 class generator:
-	def __init__(self,weights,biases,scope_name,shape=64):
+	def __init__(self,weights,biases,scope_name,shape):
 		self.weights = weights
 		self.biases = biases
 		self.shape = shape
