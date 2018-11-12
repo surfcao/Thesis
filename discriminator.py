@@ -2,7 +2,7 @@ import tensorflow as tf
 from utils import conv2d,maxpool2d,lrelu,tanh
 
 class discriminator:
-    def __init__(self,weights,biases,shape=256,keep_rate=0.8):
+    def __init__(self,weights,biases,shape,keep_rate=0.8):
         self.weights = weights
         self.biases = biases
         self.shape = shape
