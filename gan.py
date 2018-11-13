@@ -16,7 +16,7 @@ class gan:
 			out_1 = gen_1.gen(x,train)
 			out = out_1
 			
-		elif self.final_res%4==0:
+		if self.final_res%4==0:
 			gen_2 = generator(weights,biases,2,self.shape)
 			out_2 = gen_2.gen(x,train)
 			out_2 = tf.concat([out_2,out_1],3)
@@ -33,7 +33,7 @@ class gan:
 			out_2 = 127.5*(tanh(out_2)+1)
 			out = out_2
 
-		elif self.final_res%8==0:
+		if self.final_res%8==0:
 			gen_3 = generator(weights,biases,3,self.shape)
 			out_3 = gen_3.gen(x,train)
 			out_3 = tf.concat([out_3,out_1],3)
