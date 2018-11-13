@@ -14,7 +14,7 @@ def conv_layer(x,w,b,max_pool):
 
 class vgg:
 	
-	def __init__(self,weight_file,sess,shape=128,layer_no=4):
+	def __init__(self,weight_file,sess,shape,layer_no=4):
 		self.layer_no = layer_no
 		self.shape = shape
 		self.w = {
