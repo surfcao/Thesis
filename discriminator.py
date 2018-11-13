@@ -9,7 +9,7 @@ class discriminator:
         self.keep_rate = keep_rate
 
     def dis(self,x,training):
-        x = tf.reshape(x,shape=[-1,shape,shape,3])
+        x = tf.reshape(x,self.shape=[-1,self.shape,self.shape,3])
         scope = 'dis_'
         layer_1 = lrelu(conv2d(x,weights[scope+'w_conv1'])+biases[scope+'b_conv1'])
         
