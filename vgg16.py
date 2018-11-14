@@ -1,7 +1,6 @@
 import tensorflow as tf
 import numpy as np
 
-
 vgg_mean_bgr = tf.constant([103.939,116.779,123.68],dtype=tf.float32)
 
 def conv_layer(x,w,b,max_pool):
@@ -14,7 +13,7 @@ def conv_layer(x,w,b,max_pool):
 
 class vgg:
 	
-	def __init__(self,weight_file,sess,shape,layer_no=4):
+	def __init__(self,sess,shape,layer_no=4):
 		self.layer_no = layer_no
 		self.shape = shape
 		self.w = {
@@ -42,7 +41,7 @@ class vgg:
 			'w_6':tf.Variable(tf.zeros([256]),trainable=False),
 			'w_7':tf.Variable(tf.zeros([256]),trainable=False)
 		}
-
+		weight_file = '/home/sidhanth/Downloads/vgg16_weights.npz'
 		weights = np.load(weight_file)
 		keys = sorted(weights.keys())
 		count = 1
