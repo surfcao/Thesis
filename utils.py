@@ -25,9 +25,9 @@ def prelu(input_tensor,scope_name):
 def tanh(x):
 	return tf.nn.tanh(x)
 
-def variable(scope,var,shape)
+def variable(scope,var,shape,trainable):
 	scope_name = str(scope)
 	var_name = 'w_' + str(var)
 	with tf.variable_scope(scope_name,reuse=tf.AUTO_REUSE):
-		var = tf.get_variable(var_name,shape=shape,dtype=tf.float32,initializer=tf.glorot_uniform_initializer(),trainable=True)
+		var = tf.get_variable(var_name,shape=shape,dtype=tf.float32,initializer=tf.glorot_uniform_initializer(),trainable=trainable)
 	return var
