@@ -1,7 +1,7 @@
 import tensorflow as tf
 from gan import gan
 from helper_func import load_batch,test_network
-#from opti import constrained_problem
+#from optimization import constrained_problem
 from tqdm import tqdm
 import os,glob,cv2
 from vgg16 import vgg
