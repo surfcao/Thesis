@@ -2,7 +2,7 @@ import tensorflow as tf
 import numpy as np
 import cv2,glob
 
-def load_batch(path,end=25000,init_shape=64,scale=2):		
+def load_batch(path,init_shape,scale=2,end=25000):		
 	image_path = glob.glob(path)
 	count=1
 	image_list_x = []
