@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 
-vgg_mean_bgr = tf.constant([103.939,116.779,123.68],dtype=tf.float32)
+vgg_mean_rgb = tf.constant([123.68,116.779,103.939],dtype=tf.float32)
 
 def conv_layer(x,w,b,max_pool):
 		conv = tf.nn.conv2d(x,w,[1,1,1,1],padding="SAME")	
@@ -60,7 +60,8 @@ class vgg:
 	
 	def vgg_16(self,x):
 		layer = tf.reshape(x,shape=[-1,self.shape,self.shape,3])
-		layer = tf.subtract(layer,vgg_mean_bgr)
+		layer = tf.image.resize_bicubic(layer,tf.constant([224,224]))
+		layer = tf.subtract(layer,vgg_mean_rgb)
 		max_pool = [0,1,0,1,0,0,1]
 
 		for i in range(0,7):
